@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>sinav Programım</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #0f172a;
+            color: #e2e8f0;
+            padding: 40px 20px;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        header h1 {
+            font-size: 2.2rem;
+            color: #f8fafc;
+            margin-bottom: 8px;
+            font-weight: 700;
+        }
+
+        header p {
+            color: #94a3b8;
+            font-size: 1rem;
+        }
+
+        .timeline {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+
+        .day-group {
+            background: #1e293b;
+            border-radius: 16px;
+            padding: 24px;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3);
+            border: 1px solid #334155;
+            display: grid;
+            grid-template-columns: 160px 1fr;
+            gap: 20px;
+            align-items: center;
+        }
+
+        @media (max-width: 768px) {
+            .day-group {
+                grid-template-columns: 1fr;
+                gap: 12px;
+            }
+        }
+
+        .day-name {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: #38bdf8;
+            border-bottom: 2px solid #334155;
+            padding-bottom: 8px;
+        }
+
+        @media (min-width: 769px) {
+            .day-name {
+                border-bottom: none;
+                border-right: 2px solid #334155;
+                padding-right: 20px;
+            }
+        }
+
+        .lessons-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .lesson-item {
+            background: #0f172a;
+            padding: 14px 18px;
+            border-radius: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            border-left: 4px solid #64748b;
+        }
+
+        .lesson-item.zorunlu {
+            border-left-color: #f43f5e;
+        }
+
+        .lesson-item.secmeli {
+            border-left-color: #0ea5e9;
+        }
+
+        .lesson-info {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .lesson-time {
+            font-size: 0.85rem;
+            color: #94a3b8;
+            font-weight: 500;
+        }
+
+        .lesson-title {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #f1f5f9;
+        }
+
+        .lesson-badges {
+            display: flex;
+            gap: 8px;
+        }
+
+        .badge {
+            font-size: 0.75rem;
+            padding: 4px 10px;
+            border-radius: 6px;
+            font-weight: 600;
+        }
+
+        .badge-sub {
+            background: #334155;
+            color: #cbd5e1;
+        }
+
+        .badge-zorunlu {
+            background: rgba(244, 63, 94, 0.15);
+            color: #fda4af;
+        }
+
+        .badge-degil {
+            background: rgba(14, 165, 233, 0.15);
+            color: #7dd3fc;
+        }
+
+        .off-day {
+            color: #64748b;
+            font-style: italic;
+            font-size: 0.95rem;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <h1>sinav Programı</h1>
+            <p>Bilgisayar Mühendisliği - 3. Sınıf</p>
+        </header>
+
+        <div class="timeline">
+            <!-- Pazartesi -->
+            <div class="day-group">
+                <div class="day-name">Pazartesi<br><span style="font-size: 0.85rem; color: #94a3b8; font-weight: normal;">2 Kasım</span></div>
+                <div class="lessons-list">
+                    <div class="lesson-item zorunlu">
+                        <div class="lesson-info">
+                            <span class="lesson-time">09:00</span>
+                            <span class="lesson-title">İşletim Sistemleri</span>
+                        </div>
+                        <div class="lesson-badges">
+                            <span class="badge badge-zorunlu">Zorunlu</span>
+                        </div>
+                    </div>
+                    <div class="lesson-item zorunlu">
+                        <div class="lesson-info">
+                            <span class="lesson-time">10:00</span>
+                            <span class="lesson-title">Mantık Tasarım</span>
+                        </div>
+                        <div class="lesson-badges">
+                            <span class="badge badge-zorunlu">Zorunlu</span>
+                        </div>
+                    </div>
+                    <div class="lesson-item secmeli">
+                        <div class="lesson-info">
+                            <span class="lesson-time">13:00</span>
+                            <span class="lesson-title">Kavramlar</span>
+                        </div>
+                        <div class="lesson-badges">
+                            <span class="badge badge-degil">zorunlu</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Salı -->
+            <div class="day-group">
+                <div class="day-name">Salı<br><span style="font-size: 0.85rem; color: #94a3b8; font-weight: normal;">3 Kasım</span></div>
+                <div class="lessons-list">
+                    <div class="lesson-item secmeli">
+                        <div class="lesson-info">
+                            <span class="lesson-time">13:00</span>
+                            <span class="lesson-title">Veri Yapıları</span>
+                        </div>
+                        <div class="lesson-badges">
+                            <span class="badge badge-degil">zorunlu</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Çarşamba -->
+            <div class="day-group">
+                <div class="day-name">Çarşamba<br><span style="font-size: 0.85rem; color: #94a3b8; font-weight: normal;">4 Kasım</span></div>
+                <div class="lessons-list">
+                    <div class="lesson-item zorunlu">
+                        <div class="lesson-info">
+                            <span class="lesson-time">09:00</span>
+                            <span class="lesson-title">Lineer Cebir (Liner)</span>
+                        </div>
+                        <div class="lesson-badges">
+                            <span class="badge badge-zorunlu">Zorunlu</span>
+                        </div>
+                    </div>
+                    <div class="lesson-item secmeli">
+                        <div class="lesson-info">
+                            <span class="lesson-time">10:00</span>
+                            <span class="lesson-title">Programlamaya Giriş</span>
+                        </div>
+                        <div class="lesson-badges">
+                            <span class="badge badge-degil">zorunlu</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Perşembe -->
+            <div class="day-group">
+                <div class="day-name">Perşembe<br><span style="font-size: 0.85rem; color: #94a3b8; font-weight: normal;">5 Kasım</span></div>
+                <div class="lessons-list">
+                    <div class="lesson-item secmeli">
+                        <div class="lesson-info">
+                            <span class="lesson-time">13:00</span>
+                            <span class="lesson-title">Web Programlama</span>
+                        </div>
+                        <div class="lesson-badges">
+                            <span class="badge badge-degil">zorunlu</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Cuma -->
+            <div class="day-group">
+                <div class="day-name">Cuma<br><span style="font-size: 0.85rem; color: #94a3b8; font-weight: normal;">6 Kasım</span></div>
+                <div class="lessons-list">
+                    <div class="lesson-item zorunlu">
+                        <div class="lesson-info">
+                            <span class="lesson-time">11:00</span>
+                            <span class="lesson-title">Veritabanı Yönetim Sistemleri</span>
+                        </div>
+                        <div class="lesson-badges">
+                            <span class="badge badge-zorunlu">Zorunlu</span>
+                        </div>
+                    </div>
+                    <div class="lesson-item zorunlu">
+                        <div class="lesson-info">
+                            <span class="lesson-time">14:00</span>
+                            <span class="lesson-title">Devre Analizi</span>
+                        </div>
+                        <div class="lesson-badges">
+                            <span class="badge badge-zorunlu">Zorunlu</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
